@@ -10,7 +10,7 @@ output: index.html
 
 # IIIF/Fedora 4 Integration
 
-## UMD Libraries
+## ![UMD Libraries](https://www.lib.umd.edu/images/wrapper/liblogo.png)
 
 --
 
@@ -72,27 +72,48 @@ Attempt to match the highlighted word by using exact match, but then verify that
 
 ### Embedded coordinates
 
-If the coordinates are set off by non-alphanumeric characters (e.g., append as `{x,y,w,h}` like `varsity{1961,4247,378,94}`), then the Solr text matching will still work (the tokenizer strips the suffix off of the field), and the matches can be mapped by grabbing the highlighted sequence plus the coordinate block that appears directly after it.
+Include the ALTO coordinates for each word in the text to be indexed by Solr. The challenge is to include the coordinates in such a way that will not interfere with Solr's processing of the field.
 
 --
 
 ### Content Search API
 
-Preprocess the ALTO XML file into sets of anootation lists for words, lines, blocks, and pages. Use an off-the-shelf implementation of the Content Search API, or implement our own, to search this set of predefined annotations.
+Preprocess the ALTO XML file into sets of annotation lists for words, lines, blocks, and pages. Use an off-the-shelf implementation of the Content Search API, or implement our own, to search this set of predefined annotations.
 
 --
 
-### Solution chosen: Embedded coordinates
+### Solution chosen
+
+- Embedded coordinates
+
+--
+
+### Embedded coordinates: Indexing
+
 - As part of ingest, extract text and coordinates from the ALTO XML
-- Store the text with the coordinates embedded in it in an "extracted_text" field in Solr
-- When searching Solr, request highlighting for the extracted_text field
+- Store the text with the coordinates embedded in it in an `extracted_text` field in Solr, in the form `word{x,y,w,h}`
+- Solr text matching still works; tokenizer strips the `{...}` before analysis.
+
+--
+
+### Embedded coodinates: Searching
+
+- When searching Solr, request highlighting for the `extracted_text` field
 - Post-process the Solr results to extract the highlighted words and their associated coordinates. Use this info to construct a dynamic annotation list.
+
+--
+
+### Process
+
+![OCR Search](iiif-ocr-search.png)
 
 --
 
 ### Code
 
 - <https://github.com/peichman-umd/iiif-tools-prototype>
+  - [alto2txt.xsl](https://github.com/peichman-umd/iiif-tools-prototype/blob/master/alto2txt.xsl)
+  - [extracthits.rb](https://github.com/peichman-umd/iiif-tools-prototype/blob/master/extracthits.rb)
 
 --
 
@@ -105,7 +126,7 @@ Preprocess the ALTO XML file into sets of anootation lists for words, lines, blo
 
 ### Our TODO List
 
-- permissions propogation from Fedora to Loris
+- Permissions propagation from Fedora to Loris
 - Presentation API: manifests and annotations
 
 --

@@ -401,6 +401,9 @@ a, a:hover, h1, h3 {
 a:hover {
     text-decoration: underline;
 }
+img {
+    max-height: 500px;
+}
 
   </style>
 </head>
@@ -411,7 +414,7 @@ a:hover {
 
   <div class="slide" id="slide-1">
     <section class="slide-content"><h1 id="iiif-fedora-4-integration">IIIF/Fedora 4 Integration</h1>
-<h2 id="umd-libraries">UMD Libraries</h2>
+<h2 id="-umd-libraries-https-www-lib-umd-edu-images-wrapper-liblogo-png-"><img src="https://www.lib.umd.edu/images/wrapper/liblogo.png" alt="UMD Libraries"></h2>
 </section>
   </div>
   <div class="slide hidden" id="slide-2">
@@ -474,32 +477,55 @@ a:hover {
   </div>
   <div class="slide hidden" id="slide-10">
     <section class="slide-content"><h3 id="embedded-coordinates">Embedded coordinates</h3>
-<p>If the coordinates are set off by non-alphanumeric characters (e.g., append as <code>{x,y,w,h}</code> like <code>varsity{1961,4247,378,94}</code>), then the Solr text matching will still work (the tokenizer strips the suffix off of the field), and the matches can be mapped by grabbing the highlighted sequence plus the coordinate block that appears directly after it.</p>
+<p>Include the ALTO coordinates for each word in the text to be indexed by Solr. The challenge is to include the coordinates in such a way that will not interfere with Solr&#39;s processing of the field.</p>
 </section>
   </div>
   <div class="slide hidden" id="slide-11">
     <section class="slide-content"><h3 id="content-search-api">Content Search API</h3>
-<p>Preprocess the ALTO XML file into sets of anootation lists for words, lines, blocks, and pages. Use an off-the-shelf implementation of the Content Search API, or implement our own, to search this set of predefined annotations.</p>
+<p>Preprocess the ALTO XML file into sets of annotation lists for words, lines, blocks, and pages. Use an off-the-shelf implementation of the Content Search API, or implement our own, to search this set of predefined annotations.</p>
 </section>
   </div>
   <div class="slide hidden" id="slide-12">
-    <section class="slide-content"><h3 id="solution-chosen-embedded-coordinates">Solution chosen: Embedded coordinates</h3>
+    <section class="slide-content"><h3 id="solution-chosen">Solution chosen</h3>
 <ul>
-<li>As part of ingest, extract text and coordinates from the ALTO XML</li>
-<li>Store the text with the coordinates embedded in it in an &quot;extracted_text&quot; field in Solr</li>
-<li>When searching Solr, request highlighting for the extracted_text field</li>
-<li>Post-process the Solr results to extract the highlighted words and their associated coordinates. Use this info to construct a dynamic annotation list.</li>
+<li>Embedded coordinates</li>
 </ul>
 </section>
   </div>
   <div class="slide hidden" id="slide-13">
-    <section class="slide-content"><h3 id="code">Code</h3>
+    <section class="slide-content"><h3 id="embedded-coordinates-indexing">Embedded coordinates: Indexing</h3>
 <ul>
-<li><a href="https://github.com/peichman-umd/iiif-tools-prototype">https://github.com/peichman-umd/iiif-tools-prototype</a></li>
+<li>As part of ingest, extract text and coordinates from the ALTO XML</li>
+<li>Store the text with the coordinates embedded in it in an <code>extracted_text</code> field in Solr, in the form <code>word{x,y,w,h}</code></li>
+<li>Solr text matching still works; tokenizer strips the <code>{...}</code> before analysis.</li>
 </ul>
 </section>
   </div>
   <div class="slide hidden" id="slide-14">
+    <section class="slide-content"><h3 id="embedded-coodinates-searching">Embedded coodinates: Searching</h3>
+<ul>
+<li>When searching Solr, request highlighting for the <code>extracted_text</code> field</li>
+<li>Post-process the Solr results to extract the highlighted words and their associated coordinates. Use this info to construct a dynamic annotation list.</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-15">
+    <section class="slide-content"><h3 id="process">Process</h3>
+<p><img src="iiif-ocr-search.png" alt="OCR Search"></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-16">
+    <section class="slide-content"><h3 id="code">Code</h3>
+<ul>
+<li><a href="https://github.com/peichman-umd/iiif-tools-prototype">https://github.com/peichman-umd/iiif-tools-prototype</a><ul>
+<li><a href="https://github.com/peichman-umd/iiif-tools-prototype/blob/master/alto2txt.xsl">alto2txt.xsl</a></li>
+<li><a href="https://github.com/peichman-umd/iiif-tools-prototype/blob/master/extracthits.rb">extracthits.rb</a></li>
+</ul>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-17">
     <section class="slide-content"><h3 id="status">Status</h3>
 <ul>
 <li>Have been developing proofs-of-concept of portions of the chosen solution.</li>
@@ -507,15 +533,15 @@ a:hover {
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-15">
+  <div class="slide hidden" id="slide-18">
     <section class="slide-content"><h3 id="our-todo-list">Our TODO List</h3>
 <ul>
-<li>permissions propogation from Fedora to Loris</li>
+<li>Permissions propagation from Fedora to Loris</li>
 <li>Presentation API: manifests and annotations</li>
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-16">
+  <div class="slide hidden" id="slide-19">
     <section class="slide-content"><h3 id="links">Links</h3>
 <ul>
 <li>IIIF Image API: <a href="http://iiif.io/api/image/2.1/">http://iiif.io/api/image/2.1/</a></li>
@@ -524,7 +550,7 @@ a:hover {
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-17">
+  <div class="slide hidden" id="slide-20">
     <section class="slide-content"><div class="author">
   <h1 class="name">Peter Eichman</h1>
     <h3 class="url">

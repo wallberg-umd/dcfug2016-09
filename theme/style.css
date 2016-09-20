@@ -1,0 +1,9 @@
+h1 {
+    font-size: 1.75em;
+}
+a, a:hover, h1, h3 {
+    color: #c00;
+}
+a:hover {
+    text-decoration: underline;
+}

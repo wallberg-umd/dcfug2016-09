@@ -24,8 +24,10 @@ output: index.html
 
 ### Technology Choices
 
-- Use Loris as our IIIF Server
-- Use HTTP resolver to connect Loris and Fedora
+- Fedora 4.5.1
+- Loris 2.0.1 IIIF Image Server
+- HTTP resolver to connect Loris and Fedora
+- Mirador image viewer
 
 --
 

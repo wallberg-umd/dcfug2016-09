@@ -1,8 +1,8 @@
-title: UMD Libraries IIIF/Fedora 4 Integration
+title: UMD Libraries Discovery Forum
 author:
-  name: Peter Eichman
-  email: peichman@umd.edu
-  url: https://github.com/peichman-umd
+  name: Ben Wallberg
+  email: wallberg@umd.edu
+  url: https://github.com/wallberg-umd
 theme: theme
 output: index.html
 

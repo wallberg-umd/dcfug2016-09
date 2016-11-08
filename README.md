@@ -1,4 +1,3 @@
-# UMD Libraries DCFUG 2016 Fall Presentation
+# UMD Libraries Discovery Forum Presentation - Bento Box
 
-This is the UMD Libraries' presentation for the DC Fedora Users Group (DCFUG)
-meeting on September 22, 2016.
+Introduce and demonstrate Bento Box Discovery at the UMD Libraries Discovery Forum on November 9, 2016.

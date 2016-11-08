@@ -8,7 +8,7 @@ output: index.html
 
 --
 
-# IIIF/Fedora 4 Integration
+# Bento Box Discovery
 
 ## Progress Report
 

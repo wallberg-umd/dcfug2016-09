@@ -74,11 +74,48 @@ Evaluation process - explore publications and peer institution experiences; buil
 
 --
 
-### Demonstration
+### Examples
 
-Using NCSU Libraries QuickSearch
+[North Carolina State University](http://www.lib.ncsu.edu/)
+- Journals, Databases, Subjects
+- Guides included in Website
+- Frequently Asked Questions
 
-- [JSTOR](http://search.lib.ncsu.edu/?q=jstor)
-- [Harvard Business Review](http://search.lib.ncsu.edu/?q=harvard+business+review)
-- ["University of Maryland Libraries"](http://search.lib.ncsu.edu/?q=%22university+of+maryland+libraries%22)
+Searches
+- Known Article: [Checking out Facebook.com: The impact of a digital trend on academic libraries](http://search.lib.ncsu.edu/?utf8=%E2%9C%93&q=Checking+out+Facebook.com%3A+The+impact+of+a+digital+trend+on+academic+libraries)
+- Database: [JSTOR](http://search.lib.ncsu.edu/?utf8=%E2%9C%93&q=JSTOR)
+- Frequently Asked Questions: [off campus access to resources](http://search.lib.ncsu.edu/?utf8=%E2%9C%93&q=off+campus+access+to+resources)
+- Spelling Correction: [libray hours](http://search.lib.ncsu.edu/?utf8=%E2%9C%93&q=libray+hours)
+
+--
+
+### Examples
+
+[University of Michigan](http://www.lib.umich.edu/)
+- Research Help: Ask, Librarian, Guides, Staff Directory
+
+-- 
+
+### Examples
+
+[Cornell University](https://www.library.cornell.edu/)
+- Search local Catalog, provide link out to WorldCat
+- Formats
+- Library Websites includes DSpace IR
+
+--
+
+### Examples
+
+[Princeton University](http://library.princeton.edu/)
+- Digital Library
+- Finding Aids
+
+--
+
+### Examples
+
+[Stanford University](http://library.stanford.edu/)
+- Concept Map
+- Can't find what you're looking for?
 

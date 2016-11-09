@@ -367,8 +367,8 @@ a, a:hover, h1, h3 {
 a:hover {
     text-decoration: underline;
 }
-img {
-    max-height: 500px;
+.slide-content {
+    height: initial;
 }
 .info {
     position: absolute;
@@ -387,6 +387,7 @@ img {
 }
 
   </style>
+    <script async src="http://localhost:35729/livereload.js"></script>
 </head>
 <body>
     <div class="progress">
@@ -399,154 +400,76 @@ img {
 
   <div class="slide" id="slide-1">
     <section class="slide-content"><h1 id="bento-box-discovery">Bento Box Discovery</h1>
-<h2 id="progress-report">Progress Report</h2>
 </section>
   </div>
   <div class="slide hidden" id="slide-2">
-    <section class="slide-content"><h3 id="goals">Goals</h3>
-<ul>
-<li>Repository-centric implementation</li>
-<li>Store masters in Fedora</li>
-<li>Treat IIIF as another index of Fedora data</li>
-</ul>
+    <section class="slide-content"><h3 id="what">What</h3>
+<p><b>Proposal</b> - the UMD Libraries should evaluate adoption of Bento Box Discovery</p>
 </section>
   </div>
   <div class="slide hidden" id="slide-3">
-    <section class="slide-content"><h3 id="technology-choices">Technology Choices</h3>
-<ul>
-<li>Fedora 4.5.1</li>
-<li>Loris 2.0.1 IIIF Image Server</li>
-<li>HTTP resolver to connect Loris and Fedora</li>
-<li>Mirador image viewer</li>
-</ul>
+    <section class="slide-content"><h3 id="what">What</h3>
+<p>Bento Box is a style of Japanese boxed meal with compartmentalized portions</p>
+<p><img src="Bento.jpg" alt="Bento">
+<br/>
+<a href="https://en.wikipedia.org/wiki/Bento#/media/File:Bento_at_Hanabishi,_Koyasan.jpg">Bento at Hanabishi, Koyasan (CC by 2.0)</a></p>
 </section>
   </div>
   <div class="slide hidden" id="slide-4">
-    <section class="slide-content"><h3 id="major-project">Major Project</h3>
-<ul>
-<li>Diamondback Newspaper Digitization</li>
-<li>OCR search and text highlighting</li>
-<li>Vendor data:<ul>
-<li>TIFF masters</li>
-<li>ALTO XML OCR text</li>
-</ul>
-</li>
-</ul>
+    <section class="slide-content"><h3 id="what">What</h3>
+<p><b>Link out to native interface</b> - for each box, both for full results and individual hits; the native interface provides optimized display, navigation, and advanced search for the source data</p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-5">
-    <section class="slide-content"><h3 id="challenges">Challenges</h3>
-<ul>
-<li>Full text search that is able to map to or preserve coordinate info for highlighting</li>
-</ul>
+  <div class="slide hidden  " id="slide-5">
+    <section class="slide-content"><h3 id="search-flow">Search Flow</h3>
+<p><img src="flow-600.jpg" alt="Search Flow"></p>
 </section>
   </div>
   <div class="slide hidden" id="slide-6">
-    <section class="slide-content"><h3 id="solutions-considered">Solutions Considered</h3>
+    <section class="slide-content"><h3 id="why">Why</h3>
+<p><b>Currently no true single search</b> </p>
 <ul>
-<li>Pure text matching</li>
-<li>Position-based matching</li>
-<li>Text matching with context</li>
-<li>Embedded coordinates</li>
-<li>Content Search API</li>
+<li>single search can’t happen without aggregation of data from multiple sources into single index</li>
+<li>WorldCat Discovery covers much, but not all</li>
 </ul>
 </section>
   </div>
   <div class="slide hidden" id="slide-7">
-    <section class="slide-content"><h3 id="pure-text-matching">Pure Text Matching</h3>
-<p>If a word is highlighted in the Solr results, then search for all occurrences of that word in the ALTO document and return that list of coordinates. This is an easy approach, but has the potential to match too much if the query doesn&#39;t match all occurrences of a given word.</p>
+    <section class="slide-content"><h3 id="why">Why</h3>
+<p><b>Provide users with single search box</b> </p>
+<ul>
+<li>familiar Google search experience </li>
+<li>obviates need to know the data source upfront</li>
+<li>search results guide users to relevant source(s)</li>
+</ul>
 </section>
   </div>
   <div class="slide hidden" id="slide-8">
-    <section class="slide-content"><h3 id="position-based-matching">Position-based Matching</h3>
-<p>Attempt to match highlighted words to those in the original ALTO document based on their position in the document. This would require careful synchronization of the full-text field and the ALTO file to ensure that the word positions matched.</p>
+    <section class="slide-content"><h3 id="why">Why</h3>
+<p><b>Metasearch solution hasn’t worked</b> </p>
+<ul>
+<li>single search box with federated search and real-time aggregated result list</li>
+<li>shown to be too slow, poor search interface and capabilities, poor vendor support</li>
+</ul>
 </section>
   </div>
   <div class="slide hidden" id="slide-9">
-    <section class="slide-content"><h3 id="text-matching-with-context">Text Matching with Context</h3>
-<p>Attempt to match the highlighted word by using exact match, but then verify that at least the preceding and following words match.</p>
+    <section class="slide-content"><p>How
+Technology - local system executes multiple searches against source system APIs, but does not attempt to aggregate the results; one open-source tool available is QuickSearch, provided by NCSU Libraries.</p>
+<p>Evaluation process - explore publications and peer institution experiences; build prototype systems then move to beta systems for end user feedback; ensure data collection and review process in place from the start</p>
 </section>
   </div>
   <div class="slide hidden" id="slide-10">
-    <section class="slide-content"><h3 id="embedded-coordinates">Embedded Coordinates</h3>
-<p>Include the ALTO coordinates for each word in the text to be indexed by Solr. The challenge is to include the coordinates in such a way that will not interfere with Solr&#39;s processing of the field.</p>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-11">
-    <section class="slide-content"><h3 id="content-search-api">Content Search API</h3>
-<p>Preprocess the ALTO XML file into sets of annotation lists for words, lines, blocks, and pages. Use an off-the-shelf implementation of the IIIF Content Search API (or implement our own) to search this set of predefined annotations.</p>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-12">
-    <section class="slide-content"><h3 id="solution-chosen-embedded-coordinates">Solution Chosen: Embedded Coordinates</h3>
+    <section class="slide-content"><h3 id="demonstration">Demonstration</h3>
+<p>Using NCSU Libraries QuickSearch</p>
 <ul>
-<li>Easier integration with metadata search</li>
-<li>Relatively easy to implement</li>
+<li><a href="http://search.lib.ncsu.edu/?q=jstor">JSTOR</a></li>
+<li><a href="http://search.lib.ncsu.edu/?q=harvard+business+review">Harvard Business Review</a></li>
+<li><a href="http://search.lib.ncsu.edu/?q=%22university+of+maryland+libraries%22">&quot;University of Maryland Libraries&quot;</a></li>
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-13">
-    <section class="slide-content"><h3 id="embedded-coordinates-overview">Embedded Coordinates: Overview</h3>
-<p><img src="iiif-ocr-search.png" alt="OCR Search"></p>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-14">
-    <section class="slide-content"><h3 id="embedded-coordinates-indexing">Embedded Coordinates: Indexing</h3>
-<ul>
-<li>As part of ingest, extract text and coordinates from the ALTO XML</li>
-<li><a href="https://github.com/peichman-umd/iiif-tools-prototype/blob/master/alto2txt.xsl">alto2txt.xsl</a></li>
-<li>Store the text with the coordinates embedded in it in an <code>extracted_text</code> field in Solr, in the form <code>word{x,y,w,h}</code></li>
-<li>Solr text matching still works; tokenizer strips the <code>{...}</code> before analysis.</li>
-</ul>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-15">
-    <section class="slide-content"><h3 id="embedded-coordinates-searching">Embedded Coordinates: Searching</h3>
-<ul>
-<li>When searching Solr, request highlighting for the <code>extracted_text</code> field</li>
-<li>Post-process the Solr results to extract the highlighted words and their associated coordinates. Use this info to construct a dynamic annotation list.</li>
-<li><a href="https://github.com/peichman-umd/iiif-tools-prototype/blob/master/extracthits.rb">extracthits.rb</a></li>
-</ul>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-16">
-    <section class="slide-content"><h3 id="prototype-code">Prototype Code</h3>
-<ul>
-<li><a href="https://github.com/peichman-umd/iiif-tools-prototype">https://github.com/peichman-umd/iiif-tools-prototype</a><ul>
-<li><a href="https://github.com/peichman-umd/iiif-tools-prototype/blob/master/alto2txt.xsl">alto2txt.xsl</a></li>
-<li><a href="https://github.com/peichman-umd/iiif-tools-prototype/blob/master/extracthits.rb">extracthits.rb</a></li>
-</ul>
-</li>
-</ul>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-17">
-    <section class="slide-content"><h3 id="project-status">Project Status</h3>
-<ul>
-<li>Have been developing proofs-of-concept of portions of the chosen solution.</li>
-<li>Working on a batch loader to ingest newspaper data so we can do further development with real assets.</li>
-</ul>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-18">
-    <section class="slide-content"><h3 id="our-todo-list">Our TODO List</h3>
-<ul>
-<li>Presentation API: storing and serving manifests and annotations</li>
-<li>Permissions propagation from Fedora to Loris</li>
-</ul>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-19">
-    <section class="slide-content"><h3 id="links">Links</h3>
-<ul>
-<li>IIIF Image API: <a href="http://iiif.io/api/image/2.1/">http://iiif.io/api/image/2.1/</a></li>
-<li>Loris: <a href="https://github.com/loris-imageserver/loris">https://github.com/loris-imageserver/loris</a></li>
-<li>IIIF Presentation API: <a href="http://iiif.io/api/presentation/2.1/">http://iiif.io/api/presentation/2.1/</a></li>
-<li>IIIF Content Search API: <a href="http://iiif.io/api/search/1.0/">http://iiif.io/api/search/1.0/</a></li>
-</ul>
-</section>
-  </div>
-  <div class="slide hidden author-slide" id="slide-20">
+  <div class="slide hidden author-slide" id="slide-11">
     <section class="slide-content"><div class="author">
   <h1 class="name">Ben Wallberg</h1>
     <h3 class="url">

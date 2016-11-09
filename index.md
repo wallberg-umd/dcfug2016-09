@@ -10,138 +10,75 @@ output: index.html
 
 # Bento Box Discovery
 
-## Progress Report
+--
+
+### What
+
+<b>Proposal</b> - the UMD Libraries should evaluate adoption of Bento Box Discovery
 
 --
 
-### Goals
+### What
 
-- Repository-centric implementation
-- Store masters in Fedora
-- Treat IIIF as another index of Fedora data
+Bento Box is a style of Japanese boxed meal with compartmentalized portions
 
---
+![Bento](Bento.jpg)
+<br/>
+[Bento at Hanabishi, Koyasan (CC by 2.0)](https://en.wikipedia.org/wiki/Bento#/media/File:Bento_at_Hanabishi,_Koyasan.jpg)
 
-### Technology Choices
-
-- Fedora 4.5.1
-- Loris 2.0.1 IIIF Image Server
-- HTTP resolver to connect Loris and Fedora
-- Mirador image viewer
 
 --
 
-### Major Project
+### What
 
-- Diamondback Newspaper Digitization
-- OCR search and text highlighting
-- Vendor data:
-  - TIFF masters
-  - ALTO XML OCR text
+<b>Link out to native interface</b> - for each box, both for full results and individual hits; the native interface provides optimized display, navigation, and advanced search for the source data
 
---
+-- 
 
-### Challenges
+### Search Flow
 
-- Full text search that is able to map to or preserve coordinate info for highlighting
+![Search Flow](flow-600.jpg)
 
 --
 
-### Solutions Considered
+### Why
 
-- Pure text matching
-- Position-based matching
-- Text matching with context
-- Embedded coordinates
-- Content Search API
+<b>Currently no true single search</b> 
+- single search can’t happen without aggregation of data from multiple sources into single index
+- WorldCat Discovery covers much, but not all
 
 --
 
-### Pure Text Matching
+### Why
 
-If a word is highlighted in the Solr results, then search for all occurrences of that word in the ALTO document and return that list of coordinates. This is an easy approach, but has the potential to match too much if the query doesn't match all occurrences of a given word.
-
---
-
-### Position-based Matching
-
-Attempt to match highlighted words to those in the original ALTO document based on their position in the document. This would require careful synchronization of the full-text field and the ALTO file to ensure that the word positions matched.
+<b>Provide users with single search box</b> 
+- familiar Google search experience 
+- obviates need to know the data source upfront
+- search results guide users to relevant source(s)
 
 --
 
-### Text Matching with Context
+### Why
 
-Attempt to match the highlighted word by using exact match, but then verify that at least the preceding and following words match.
-
---
-
-### Embedded Coordinates
-
-Include the ALTO coordinates for each word in the text to be indexed by Solr. The challenge is to include the coordinates in such a way that will not interfere with Solr's processing of the field.
+<b>Metasearch solution hasn’t worked</b> 
+- single search box with federated search and real-time aggregated result list
+- shown to be too slow, poor search interface and capabilities, poor vendor support
 
 --
 
-### Content Search API
+How
+Technology - local system executes multiple searches against source system APIs, but does not attempt to aggregate the results; one open-source tool available is QuickSearch, provided by NCSU Libraries.
 
-Preprocess the ALTO XML file into sets of annotation lists for words, lines, blocks, and pages. Use an off-the-shelf implementation of the IIIF Content Search API (or implement our own) to search this set of predefined annotations.
 
---
-
-### Solution Chosen: Embedded Coordinates
-
-- Easier integration with metadata search
-- Relatively easy to implement
+Evaluation process - explore publications and peer institution experiences; build prototype systems then move to beta systems for end user feedback; ensure data collection and review process in place from the start
 
 --
 
-### Embedded Coordinates: Overview
+### Demonstration
 
-![OCR Search](iiif-ocr-search.png)
+Using NCSU Libraries QuickSearch
 
---
+- [JSTOR](http://search.lib.ncsu.edu/?q=jstor)
+- [Harvard Business Review](http://search.lib.ncsu.edu/?q=harvard+business+review)
+- ["University of Maryland Libraries"](http://search.lib.ncsu.edu/?q=%22university+of+maryland+libraries%22)
 
-### Embedded Coordinates: Indexing
-
-- As part of ingest, extract text and coordinates from the ALTO XML
-- [alto2txt.xsl](https://github.com/peichman-umd/iiif-tools-prototype/blob/master/alto2txt.xsl)
-- Store the text with the coordinates embedded in it in an `extracted_text` field in Solr, in the form `word{x,y,w,h}`
-- Solr text matching still works; tokenizer strips the `{...}` before analysis.
-
---
-
-### Embedded Coordinates: Searching
-
-- When searching Solr, request highlighting for the `extracted_text` field
-- Post-process the Solr results to extract the highlighted words and their associated coordinates. Use this info to construct a dynamic annotation list.
-- [extracthits.rb](https://github.com/peichman-umd/iiif-tools-prototype/blob/master/extracthits.rb)
-
---
-
-### Prototype Code
-
-- <https://github.com/peichman-umd/iiif-tools-prototype>
-  - [alto2txt.xsl](https://github.com/peichman-umd/iiif-tools-prototype/blob/master/alto2txt.xsl)
-  - [extracthits.rb](https://github.com/peichman-umd/iiif-tools-prototype/blob/master/extracthits.rb)
-
---
-
-### Project Status
-
-- Have been developing proofs-of-concept of portions of the chosen solution.
-- Working on a batch loader to ingest newspaper data so we can do further development with real assets.
-
---
-
-### Our TODO List
-
-- Presentation API: storing and serving manifests and annotations
-- Permissions propagation from Fedora to Loris
-
---
-
-### Links
-
-- IIIF Image API: <http://iiif.io/api/image/2.1/>
-- Loris: <https://github.com/loris-imageserver/loris>
-- IIIF Presentation API: <http://iiif.io/api/presentation/2.1/>
-- IIIF Content Search API: <http://iiif.io/api/search/1.0/>

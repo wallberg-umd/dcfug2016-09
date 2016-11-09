@@ -10,8 +10,8 @@ a, a:hover, h1, h3 {
 a:hover {
     text-decoration: underline;
 }
-img {
-    max-height: 500px;
+.slide-content {
+    height: initial;
 }
 .info {
     position: absolute;

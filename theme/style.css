@@ -10,6 +10,9 @@ a, a:hover, h1, h3 {
 a:hover {
     text-decoration: underline;
 }
+.slide {
+  background-color: initial;
+}
 .slide-content {
     height: initial;
 }

@@ -14,13 +14,15 @@ output: index.html
 
 ### What
 
-<b>Proposal</b> - the UMD Libraries should evaluate adoption of Bento Box Discovery
+<b>Proposal</b>
+- the UMD Libraries should evaluate adoption of Bento Box Discovery
+- Bento Box is not a particular technology, but a style of discovery
 
 --
 
 ### What
 
-Bento Box is a style of Japanese boxed meal with compartmentalized portions
+Bento is a style of Japanese boxed meal with compartmentalized portions
 
 ![Bento](Bento.jpg)
 <br/>
@@ -63,8 +65,7 @@ Bento Box is a style of Japanese boxed meal with compartmentalized portions
 ### Why
 
 <b>Provide users with single search box</b> 
-- one place to start 
-- obviates need to know the data source upfront
+- one starting point, obviates need to know the data source up front
 - search results guide users to relevant sources and resource types
 - retain native interface, which provides optimized display, navigation, and advanced search for the source data
 
@@ -86,7 +87,7 @@ Bento Box is a style of Japanese boxed meal with compartmentalized portions
 <b>Evaluation process</b>
 - explore publications and peer institution experiences
 - begin with prototype systems for internal evaluation
-- move to beta systems for end user feedback
+- move to pilot and beta systems for end user feedback
 - ensure data collection and review process in place from the start
 
 --

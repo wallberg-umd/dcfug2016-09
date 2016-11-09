@@ -367,6 +367,9 @@ a, a:hover, h1, h3 {
 a:hover {
     text-decoration: underline;
 }
+.slide {
+  background-color: initial;
+}
 .slide-content {
     height: initial;
 }
@@ -417,11 +420,16 @@ a:hover {
   </div>
   <div class="slide hidden" id="slide-4">
     <section class="slide-content"><h3 id="what">What</h3>
-<p><b>Link out to native interface</b> - for each box, both for full results and individual hits; the native interface provides optimized display, navigation, and advanced search for the source data</p>
+<p><b>Search Flow</b></p>
+<ul>
+<li>begin with single search box</li>
+<li>results compartmentalized into boxes by source or resource type</li>
+<li>link out to the native interface</li>
+</ul>
 </section>
   </div>
   <div class="slide hidden  " id="slide-5">
-    <section class="slide-content"><h3 id="search-flow">Search Flow</h3>
+    <section class="slide-content"><h3 id="what">What</h3>
 <p><img src="flow-600.jpg" alt="Search Flow"></p>
 </section>
   </div>
@@ -436,16 +444,6 @@ a:hover {
   </div>
   <div class="slide hidden" id="slide-7">
     <section class="slide-content"><h3 id="why">Why</h3>
-<p><b>Provide users with single search box</b> </p>
-<ul>
-<li>familiar Google search experience </li>
-<li>obviates need to know the data source upfront</li>
-<li>search results guide users to relevant source(s)</li>
-</ul>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-8">
-    <section class="slide-content"><h3 id="why">Why</h3>
 <p><b>Metasearch solution hasn’t worked</b> </p>
 <ul>
 <li>single search box with federated search and real-time aggregated result list</li>
@@ -453,13 +451,43 @@ a:hover {
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-9">
-    <section class="slide-content"><p>How
-Technology - local system executes multiple searches against source system APIs, but does not attempt to aggregate the results; one open-source tool available is QuickSearch, provided by NCSU Libraries.</p>
-<p>Evaluation process - explore publications and peer institution experiences; build prototype systems then move to beta systems for end user feedback; ensure data collection and review process in place from the start</p>
+  <div class="slide hidden" id="slide-8">
+    <section class="slide-content"><h3 id="why">Why</h3>
+<p><b>Provide users with single search box</b> </p>
+<ul>
+<li>one place to start </li>
+<li>obviates need to know the data source upfront</li>
+<li>search results guide users to relevant sources and resource types</li>
+<li>retain native interface, which provides optimized display, navigation, and advanced search for the source data</li>
+</ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-10">
+  <div class="slide hidden" id="slide-9">
+    <section class="slide-content"><h3 id="how">How</h3>
+<p><b>Technology</b></p>
+<ul>
+<li>local system executes multiple searches against source system APIs, but does not attempt to aggregate the results</li>
+<li>results presented as they are available</li>
+<li>open-source tools available, eg:<ul>
+<li><a href="http://www.lib.ncsu.edu/reports/quicksearch">QuickSearch</a>, provided by North Carolina State University</li>
+<li><a href="https://vufind-org.github.io/vufind/">VuFind</a>, provided by Villanova University</li>
+</ul>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden  " id="slide-10">
+    <section class="slide-content"><h3 id="how">How</h3>
+<p><b>Evaluation process</b></p>
+<ul>
+<li>explore publications and peer institution experiences</li>
+<li>begin with prototype systems for internal evaluation</li>
+<li>move to beta systems for end user feedback</li>
+<li>ensure data collection and review process in place from the start</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-11">
     <section class="slide-content"><h3 id="examples">Examples</h3>
 <p><a href="http://www.lib.ncsu.edu/">North Carolina State University</a></p>
 <ul>
@@ -471,12 +499,12 @@ Technology - local system executes multiple searches against source system APIs,
 <ul>
 <li>Known Article: <a href="http://search.lib.ncsu.edu/?utf8=%E2%9C%93&amp;q=Checking+out+Facebook.com%3A+The+impact+of+a+digital+trend+on+academic+libraries">Checking out Facebook.com: The impact of a digital trend on academic libraries</a></li>
 <li>Database: <a href="http://search.lib.ncsu.edu/?utf8=%E2%9C%93&amp;q=JSTOR">JSTOR</a></li>
-<li>Frequently Asked Questions: <a href="http://search.lib.ncsu.edu/?utf8=%E2%9C%93&amp;q=off+campus+access+to+resources">off campus access to resources</a></li>
-<li>Spelling Correction: <a href="http://search.lib.ncsu.edu/?utf8=%E2%9C%93&amp;q=libray+hours">libray hours</a></li>
+<li>Frequently Asked Question: <a href="http://search.lib.ncsu.edu/?utf8=%E2%9C%93&amp;q=off+campus+access+to+resources">off campus access to resources</a></li>
+<li>Spelling Suggestion: <a href="http://search.lib.ncsu.edu/?utf8=%E2%9C%93&amp;q=libray+hours">libray hours</a></li>
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-11">
+  <div class="slide hidden" id="slide-12">
     <section class="slide-content"><h3 id="examples">Examples</h3>
 <p><a href="http://www.lib.umich.edu/">University of Michigan</a></p>
 <ul>
@@ -484,7 +512,7 @@ Technology - local system executes multiple searches against source system APIs,
 </ul>
 </section>
   </div>
-  <div class="slide hidden  " id="slide-12">
+  <div class="slide hidden  " id="slide-13">
     <section class="slide-content"><h3 id="examples">Examples</h3>
 <p><a href="https://www.library.cornell.edu/">Cornell University</a></p>
 <ul>
@@ -494,7 +522,7 @@ Technology - local system executes multiple searches against source system APIs,
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-13">
+  <div class="slide hidden" id="slide-14">
     <section class="slide-content"><h3 id="examples">Examples</h3>
 <p><a href="http://library.princeton.edu/">Princeton University</a></p>
 <ul>
@@ -503,7 +531,7 @@ Technology - local system executes multiple searches against source system APIs,
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-14">
+  <div class="slide hidden" id="slide-15">
     <section class="slide-content"><h3 id="examples">Examples</h3>
 <p><a href="http://library.stanford.edu/">Stanford University</a></p>
 <ul>
@@ -512,7 +540,13 @@ Technology - local system executes multiple searches against source system APIs,
 </ul>
 </section>
   </div>
-  <div class="slide hidden author-slide" id="slide-15">
+  <div class="slide hidden" id="slide-16">
+    <section class="slide-content"><h3 id="acknowledgements">Acknowledgements</h3>
+<p><a href="http://www.lib.ncsu.edu">NCSU Libraries</a> for being a leader in Bento Box discovery and providing their <a href="http://www.lib.ncsu.edu/reports/quicksearch">QuickSearch</a> technology</p>
+<p><a href="http://taixiaoyu.com/">Xiaoyu Tai</a> for his work on the <a href="http://hdl.handle.net/1903/18098">Bento Box Discovery Poster</a>, which was the basis for this presentation</p>
+</section>
+  </div>
+  <div class="slide hidden author-slide" id="slide-17">
     <section class="slide-content"><div class="author">
   <h1 class="name">Ben Wallberg</h1>
     <h3 class="url">

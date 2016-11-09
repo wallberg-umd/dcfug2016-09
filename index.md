@@ -31,11 +31,14 @@ Bento Box is a style of Japanese boxed meal with compartmentalized portions
 
 ### What
 
-<b>Link out to native interface</b> - for each box, both for full results and individual hits; the native interface provides optimized display, navigation, and advanced search for the source data
+<b>Search Flow</b>
+- begin with single search box
+- results compartmentalized into boxes by source or resource type
+- link out to the native interface 
 
 -- 
 
-### Search Flow
+### What
 
 ![Search Flow](flow-600.jpg)
 
@@ -51,26 +54,40 @@ Bento Box is a style of Japanese boxed meal with compartmentalized portions
 
 ### Why
 
-<b>Provide users with single search box</b> 
-- familiar Google search experience 
-- obviates need to know the data source upfront
-- search results guide users to relevant source(s)
-
---
-
-### Why
-
 <b>Metasearch solution hasn’t worked</b> 
 - single search box with federated search and real-time aggregated result list
 - shown to be too slow, poor search interface and capabilities, poor vendor support
 
 --
 
-How
-Technology - local system executes multiple searches against source system APIs, but does not attempt to aggregate the results; one open-source tool available is QuickSearch, provided by NCSU Libraries.
+### Why
 
+<b>Provide users with single search box</b> 
+- one place to start 
+- obviates need to know the data source upfront
+- search results guide users to relevant sources and resource types
+- retain native interface, which provides optimized display, navigation, and advanced search for the source data
 
-Evaluation process - explore publications and peer institution experiences; build prototype systems then move to beta systems for end user feedback; ensure data collection and review process in place from the start
+--
+
+### How
+
+<b>Technology</b>
+- local system executes multiple searches against source system APIs, but does not attempt to aggregate the results
+- results presented as they are available
+- open-source tools available, eg:
+	- [QuickSearch](http://www.lib.ncsu.edu/reports/quicksearch), provided by North Carolina State University
+	- [VuFind](https://vufind-org.github.io/vufind/), provided by Villanova University
+
+-- 
+
+### How
+
+<b>Evaluation process</b>
+- explore publications and peer institution experiences
+- begin with prototype systems for internal evaluation
+- move to beta systems for end user feedback
+- ensure data collection and review process in place from the start
 
 --
 
@@ -84,8 +101,8 @@ Evaluation process - explore publications and peer institution experiences; buil
 Searches
 - Known Article: [Checking out Facebook.com: The impact of a digital trend on academic libraries](http://search.lib.ncsu.edu/?utf8=%E2%9C%93&q=Checking+out+Facebook.com%3A+The+impact+of+a+digital+trend+on+academic+libraries)
 - Database: [JSTOR](http://search.lib.ncsu.edu/?utf8=%E2%9C%93&q=JSTOR)
-- Frequently Asked Questions: [off campus access to resources](http://search.lib.ncsu.edu/?utf8=%E2%9C%93&q=off+campus+access+to+resources)
-- Spelling Correction: [libray hours](http://search.lib.ncsu.edu/?utf8=%E2%9C%93&q=libray+hours)
+- Frequently Asked Question: [off campus access to resources](http://search.lib.ncsu.edu/?utf8=%E2%9C%93&q=off+campus+access+to+resources)
+- Spelling Suggestion: [libray hours](http://search.lib.ncsu.edu/?utf8=%E2%9C%93&q=libray+hours)
 
 --
 

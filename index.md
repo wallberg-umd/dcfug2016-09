@@ -119,3 +119,12 @@ Searches
 - Concept Map
 - Can't find what you're looking for?
 
+--
+
+### Acknowledgements
+
+[NCSU Libraries](http://www.lib.ncsu.edu) for being a leader in Bento Box discovery and providing their [QuickSearch](http://www.lib.ncsu.edu/reports/quicksearch) technology
+
+[Xiaoyu Tai](http://taixiaoyu.com/) for his work on the [Bento Box Discovery Poster](http://hdl.handle.net/1903/18098), which was the basis for this presentation
+
+
